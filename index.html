@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma Mahesh Paluru — Field Engineer | Renewable Energy EPC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#1B3A5C;--navy-dark:#0F2338;--navy-mid:#2D4A6B;
+  --orange:#E87722;--orange-light:#F59340;
+  --white:#FFFFFF;--off:#F8FAFC;--slate:#64748B;
+  --text:#1A2332;--border:#E2E8F0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(15,35,56,0.96);backdrop-filter:blur(12px);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid rgba(232,119,34,0.3)}
+.nav-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;letter-spacing:0.02em}
+.nav-name span{color:var(--orange)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--orange)}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy-dark);display:flex;align-items:center;padding:100px 6% 60px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,74,107,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(45,74,107,0.15) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-glow{position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(232,119,34,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(232,119,34,0.12);border:1px solid rgba(232,119,34,0.3);color:var(--orange);font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:2px;margin-bottom:1.5rem}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1;color:#fff;margin-bottom:0.3em}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.55);margin-bottom:2rem;font-weight:300;max-width:520px;line-height:1.7}
+.hero-counter{display:flex;gap:3rem;margin-bottom:2.5rem;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)}
+.counter-item{}
+.counter-num{font-family:'JetBrains Mono',monospace;font-size:2.2rem;font-weight:500;color:var(--orange);line-height:1;display:block}
+.counter-label{font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--orange);color:#fff;padding:0.75rem 1.8rem;font-weight:500;font-size:0.9rem;text-decoration:none;letter-spacing:0.04em;transition:all 0.2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-primary:hover{background:var(--orange-light);transform:translateY(-1px)}
+.btn-ghost{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:0.75rem 1.8rem;font-weight:500;font-size:0.9rem;text-decoration:none;letter-spacing:0.04em;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+
+/* SECTION COMMONS */
+.section{padding:90px 6%}
+.section-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.6rem}
+.section-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--orange)}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--navy);margin-bottom:3rem;line-height:1.15}
+
+/* PROJECTS */
+.projects-section{background:var(--off)}
+.projects-section .section-title{color:var(--navy)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--border)}
+.project-card{background:var(--white);padding:2rem;position:relative;transition:transform 0.2s,box-shadow 0.2s;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--border);transition:background 0.2s}
+.project-card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(27,58,92,0.1);z-index:1}
+.project-card:hover::before{background:var(--orange)}
+.project-value-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:500;color:var(--orange);background:rgba(232,119,34,0.08);padding:0.25rem 0.6rem;margin-bottom:0.8rem;letter-spacing:0.05em}
+.project-type{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--slate);margin-bottom:0.4rem}
+.project-name{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:0.4rem;line-height:1.25}
+.project-meta{font-size:0.78rem;color:var(--slate);margin-bottom:1rem;line-height:1.5}
+.project-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem}
+.tag{font-size:0.68rem;font-weight:500;color:var(--navy-mid);background:var(--off);padding:0.2rem 0.5rem;letter-spacing:0.04em}
+.project-role{font-size:0.82rem;color:var(--slate);line-height:1.55;padding-top:0.8rem;border-top:1px solid var(--border)}
+.project-role strong{color:var(--navy);font-weight:500}
+
+/* EXPERIENCE */
+.experience-section{background:var(--white)}
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
+.timeline-item{padding-left:2.5rem;padding-bottom:3rem;position:relative}
+.timeline-dot{position:absolute;left:-5px;top:4px;width:11px;height:11px;background:var(--white);border:2px solid var(--border);border-radius:50%;transition:all 0.2s}
+.timeline-item.active .timeline-dot{background:var(--orange);border-color:var(--orange);box-shadow:0 0 0 4px rgba(232,119,34,0.15)}
+.timeline-date{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--orange);font-weight:500;letter-spacing:0.06em;margin-bottom:0.4rem;text-transform:uppercase}
+.timeline-role{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--navy);margin-bottom:0.2rem}
+.timeline-company{font-size:0.9rem;font-weight:600;color:var(--orange);margin-bottom:0.15rem}
+.timeline-location{font-size:0.78rem;color:var(--slate);margin-bottom:0.9rem}
+.timeline-bullets{list-style:none}
+.timeline-bullets li{font-size:0.86rem;color:var(--slate);padding:0.25rem 0 0.25rem 1rem;position:relative;line-height:1.55}
+.timeline-bullets li::before{content:'—';position:absolute;left:0;color:var(--orange);font-size:0.7rem;top:0.35rem}
+
+/* SKILLS */
+.skills-section{background:var(--navy)}
+.skills-section .section-eyebrow{color:var(--orange)}
+.skills-section .section-title{color:#fff}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,0.06)}
+.skill-card{background:var(--navy-dark);padding:1.75rem;transition:background 0.2s}
+.skill-card:hover{background:var(--navy-mid)}
+.skill-icon{font-size:1.4rem;margin-bottom:0.8rem;color:var(--orange)}
+.skill-title{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:0.6rem}
+.skill-list{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.75}
+
+/* EDUCATION */
+.education-section{background:var(--off)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.edu-card{background:var(--white);padding:1.75rem;border-left:3px solid var(--orange)}
+.edu-degree{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:0.3rem}
+.edu-school{font-size:0.88rem;font-weight:600;color:var(--orange);margin-bottom:0.2rem}
+.edu-year{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--slate)}
+.certs-wrap{margin-top:2.5rem}
+.certs-label{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.certs-label::before{content:'';width:16px;height:1px;background:var(--orange)}
+.certs-list{display:flex;flex-wrap:wrap;gap:0.5rem}
+.cert{font-size:0.75rem;font-weight:500;color:var(--navy);background:var(--white);padding:0.35rem 0.8rem;border:1px solid var(--border);letter-spacing:0.03em;transition:all 0.2s}
+.cert:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* CONTACT */
+.contact-section{background:var(--navy-dark);padding:90px 6%;text-align:center}
+.contact-section .section-eyebrow{justify-content:center}
+.contact-section .section-eyebrow::before{display:none}
+.contact-section .section-title{color:#fff;text-align:center}
+.contact-sub{color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 2.5rem;font-size:0.95rem}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.contact-link{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;padding:0.65rem 1.2rem;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s;letter-spacing:0.03em}
+.contact-link:hover{border-color:var(--orange);color:var(--orange)}
+
+footer{background:var(--navy-dark);border-top:1px solid rgba(255,255,255,0.06);text-align:center;padding:1.25rem;font-size:0.75rem;color:rgba(255,255,255,0.25);letter-spacing:0.05em}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-counter{gap:1.5rem;flex-wrap:wrap}
+  .edu-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Uma <span>Mahesh</span> Paluru</div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Available for 100% travel &amp; relocation</div>
+    <h1>Uma Mahesh<br><em>Paluru</em></h1>
+    <p class="hero-sub">Field Engineer building utility-scale renewable energy infrastructure across the American Southwest. Targeting Project Construction Coordinator &amp; Project Manager roles.</p>
+    <div class="hero-counter">
+      <div class="counter-item">
+        <span class="counter-num" id="c1">$0</span>
+        <div class="counter-label">Project Value Exposure</div>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" id="c2">0</span>
+        <div class="counter-label">Major Projects</div>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" id="c3">0 MW</span>
+        <div class="counter-label">Renewable Energy Built</div>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" id="c4">0</span>
+        <div class="counter-label">Safety Incidents</div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="https://linkedin.com/in/uma-mahesh-paluru-4ab99b263" target="_blank" class="btn-primary">View LinkedIn →</a>
+      <a href="#projects" class="btn-ghost">See Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section projects-section" id="projects">
+  <div class="section-eyebrow">Project Portfolio</div>
+  <div class="section-title">$1.8B+ in Construction Value</div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-value-badge">$300M+ · Active</div>
+      <div class="project-type">Utility-Scale Solar · EPC</div>
+      <div class="project-name">Rumble Solar Energy Center</div>
+      <div class="project-meta">Grady County, OK &nbsp;·&nbsp; May 2026 – Present<br>Owner: NextEra Energy Resources &nbsp;·&nbsp; EPC: Blattner Energy</div>
+      <div class="project-tags">
+        <span class="tag">250 MW</span><span class="tag">74 Blocks</span><span class="tag">4,225 Acres</span><span class="tag">COD Dec 2026</span>
+      </div>
+      <div class="project-role"><strong>Role:</strong> Field Engineer — cost control, quantity tracking, procurement, RFI/change order management, subcontractor coordination, QA/QC, client reporting to NextEra</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-value-badge">~$1.1B</div>
+      <div class="project-type">Utility-Scale Solar</div>
+      <div class="project-name">Jones County Solar I &amp; II</div>
+      <div class="project-meta">Anson, TX &nbsp;·&nbsp; Sep 2024 – May 2026<br>Owner: Lightsource bp &nbsp;·&nbsp; GC: McCarthy Building Companies</div>
+      <div class="project-tags">
+        <span class="tag">700 MW</span><span class="tag">Phase I &amp; II</span><span class="tag">Driven Piles</span><span class="tag">MV Collection</span>
+      </div>
+      <div class="project-role"><strong>Role:</strong> Construction Technician — ERT surveys, pile load testing (axial, lateral, dynamic), materials testing &amp; special inspection; zero NCRs across both phases</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-value-badge">~$150M+</div>
+      <div class="project-type">Battery Energy Storage</div>
+      <div class="project-name">Utility-Scale BESS Facility</div>
+      <div class="project-meta">McCamey, TX &nbsp;·&nbsp; Jan 2025 – Aug 2025<br>GC: McCarthy Building Companies &nbsp;·&nbsp; T&amp;I: ECS Limited</div>
+      <div class="project-tags">
+        <span class="tag">Battery Modules</span><span class="tag">MV Switchgear</span><span class="tag">Grid Interconnection</span>
+      </div>
+      <div class="project-role"><strong>Role:</strong> Construction Technician — geotechnical, concrete &amp; structural testing; NEC/IEEE compliance; field inspection reporting</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-value-badge">~$500M+ Program</div>
+      <div class="project-type">Data Center Infrastructure</div>
+      <div class="project-name">Meta Edge Data Centers</div>
+      <div class="project-meta">West Texas – NM Corridor &nbsp;·&nbsp; Jan 2025 – Apr 2026<br>GC: Ledcor Group &nbsp;·&nbsp; T&amp;I: ECS Limited</div>
+      <div class="project-tags">
+        <span class="tag">Multi-Site</span><span class="tag">Every 50 Miles</span><span class="tag">Meta Infrastructure</span>
+      </div>
+      <div class="project-role"><strong>Role:</strong> Construction Technician — all materials testing &amp; special inspection (soil, concrete, structural steel, foundations, masonry) across TX–NM corridor</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-value-badge">₹624 Cr · ~$74M USD</div>
+      <div class="project-type">Civil Infrastructure · India</div>
+      <div class="project-name">Garuda Varadhi Elevated Corridor</div>
+      <div class="project-meta">Tirupati, Andhra Pradesh, India &nbsp;·&nbsp; Jun 2020 – Mar 2022<br>Owner: MCT &amp; TTD &nbsp;·&nbsp; GC: AFCON Infrastructure</div>
+      <div class="project-tags">
+        <span class="tag">~3 km Flyover</span><span class="tag">Precast Segments</span><span class="tag">Smart City</span><span class="tag">IRC Bridge Code</span>
+      </div>
+      <div class="project-role"><strong>Role:</strong> Project Engineer — structural supervision, formwork &amp; reinforcement inspection, material QC, RFI coordination with AFCON engineers</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section experience-section" id="experience">
+  <div class="section-eyebrow">Career History</div>
+  <div class="section-title">Professional Experience</div>
+  <div class="timeline">
+
+    <div class="timeline-item active">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">May 2026 – Present</div>
+      <div class="timeline-role">Field Engineer</div>
+      <div class="timeline-company">Blattner Energy</div>
+      <div class="timeline-location">Rumble Solar · Grady County, OK</div>
+      <ul class="timeline-bullets">
+        <li>Administer daily site operations on a $300M+, 250 MW, 74-block solar EPC project — cost control, quantity tracking, procurement, and subcontractor coordination across 4,225 acres</li>
+        <li>Coordinate Trade Superintendents on two-week lookahead scheduling, daily POD plans, and production tracking using Power BI dashboards</li>
+        <li>Manage active RFI, submittal, and change order workflows; maintain job book documentation for client NextEra Energy Resources</li>
+        <li>Zero permit violations and zero recordable safety incidents maintained throughout project to date</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Sep 2024 – May 2026</div>
+      <div class="timeline-role">Construction Technician</div>
+      <div class="timeline-company">ECS Limited</div>
+      <div class="timeline-location">Dallas, TX · Multi-site: Jones County, McCamey, West TX–NM Corridor</div>
+      <ul class="timeline-bullets">
+        <li>Directed materials testing &amp; special inspection across 4 concurrent projects — 700 MW solar farm, BESS, Meta data centers, airport runway — zero NCRs across all projects</li>
+        <li>Conducted pre-construction ERT geophysical surveys and full pile load testing programs (axial compression, lateral, dynamic) per ASTM D1143, D3966, D4945</li>
+        <li>Performed geotechnical, structural, and concrete testing per ASTM, ACI, and AISC; maintained 100% safety record and reduced material waste by 5%</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Jun 2020 – Jul 2022</div>
+      <div class="timeline-role">Project Engineer</div>
+      <div class="timeline-company">Appaswamy Construction</div>
+      <div class="timeline-location">Chennai, India</div>
+      <ul class="timeline-bullets">
+        <li>Led on-site engineering for the ₹624 crore (~$74M) Garuda Varadhi elevated corridor in Tirupati — supervised structural concrete, precast segments, and reinforcement inspection</li>
+        <li>Achieved 10% reduction in completion time; reduced rework incidents by 15%; zero-non-conformance audit outcomes</li>
+        <li>Structural design and analysis using AutoCAD and STAAD Pro; coordinated RFIs with AFCON engineers</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section skills-section" id="skills">
+  <div class="section-eyebrow">Core Competencies</div>
+  <div class="section-title">Skills &amp; Expertise</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">◈</div>
+      <div class="skill-title">Project Controls</div>
+      <div class="skill-list">Cost Control · Quantity Tracking · Procurement · RFI &amp; Submittal Management · Change Orders · Job Cost Reporting (E1) · Two-Week Lookahead · Pay Applications · Budget Monitoring</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">◈</div>
+      <div class="skill-title">Site Management</div>
+      <div class="skill-list">Trade Superintendent Coordination · Subcontractor Management · Daily POD Execution · QA/QC Compliance · As-Built Documentation · NCR Management · Client &amp; Owner Reporting · SWPPP</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">◈</div>
+      <div class="skill-title">Construction Disciplines</div>
+      <div class="skill-list">Utility-Scale Solar EPC · Battery Energy Storage · Data Center · Heavy Civil · Elevated Bridge/Flyover · MV/LV Electrical · Structural Steel · Civil Grading · Tracker Installation · SCADA</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">◈</div>
+      <div class="skill-title">Geotechnical &amp; Testing</div>
+      <div class="skill-list">ERT Geophysical Survey · Pile Load Testing (Axial, Lateral, Dynamic) · Soil Compaction · Concrete Testing · Structural Steel Inspection · Masonry · PT Cable · ASTM D1143/D3966/D4945 · ACI · AISC · IRC</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">◈</div>
+      <div class="skill-title">Software &amp; Tools</div>
+      <div class="skill-list">Procore · Power BI · AutoCAD · Revit · Primavera P6 · MS Project · MS Office Suite · Geopak · ArcGIS · MicroStation · STAAD Pro · Blattner DFO App</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">◈</div>
+      <div class="skill-title">Safety &amp; Standards</div>
+      <div class="skill-list">OSHA 30 · ASTM · AASHTO · FAA · DOT · NEC · IEEE · IBC · IRC Bridge Code · IS Code · High-Voltage Safety · Zero Incident Culture · Environmental Compliance</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section education-section" id="education">
+  <div class="section-eyebrow">Academic Background</div>
+  <div class="section-title">Education</div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Master of Science — Construction Management</div>
+      <div class="edu-school">University of Texas at Arlington</div>
+      <div class="edu-year">Arlington, TX &nbsp;·&nbsp; 2022 – 2024</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Engineering — Civil Engineering</div>
+      <div class="edu-school">Anna University</div>
+      <div class="edu-year">Chennai, India &nbsp;·&nbsp; 2017 – 2021</div>
+    </div>
+  </div>
+  <div class="certs-wrap">
+    <div class="certs-label">Professional Certifications</div>
+    <div class="certs-list">
+      <span class="cert">OSHA 30</span>
+      <span class="cert">Google PM Professional</span>
+      <span class="cert">Procore Certified</span>
+      <span class="cert">AutoCAD 2D</span>
+      <span class="cert">Civil 3D</span>
+      <span class="cert">STAAD Pro</span>
+      <span class="cert">Revit Architecture</span>
+      <span class="cert">APNGA</span>
+      <span class="cert">PTI</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-eyebrow">Get in Touch</div>
+  <div class="section-title">Open to Opportunities</div>
+  <p class="contact-sub">Targeting Project Construction Coordinator and Project Manager roles in renewable energy EPC, heavy civil, and mining construction. Available for 100% travel and relocation.</p>
+  <div class="contact-links">
+    <a href="tel:+16826997335" class="contact-link">📞 +1-682-699-7335</a>
+    <a href="mailto:maheshpaluru03@gmail.com" class="contact-link">✉ maheshpaluru03@gmail.com</a>
+    <a href="https://linkedin.com/in/uma-mahesh-paluru-4ab99b263" target="_blank" class="contact-link">LinkedIn →</a>
+    <a href="#" class="contact-link">📍 Richardson, TX</a>
+  </div>
+</section>
+
+<footer>© 2026 Uma Mahesh Paluru &nbsp;·&nbsp; Field Engineer | Renewable Energy EPC &nbsp;·&nbsp; Building America's Clean Energy Future</footer>
+
+<script>
+function animateCounter(el, target, prefix, suffix, duration) {
+  const start = performance.now();
+  const update = (time) => {
+    const elapsed = time - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(ease * target);
+    el.textContent = prefix + current.toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = prefix + target.toLocaleString() + suffix;
+  };
+  requestAnimationFrame(update);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(document.getElementById('c1'), 1.8, '$', 'B+', 2000);
+      animateCounter(document.getElementById('c2'), 5, '', '', 1500);
+      animateCounter(document.getElementById('c3'), 1250, '', ' MW', 2000);
+      animateCounter(document.getElementById('c4'), 0, '', '', 500);
+      observer.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+
+observer.observe(document.querySelector('.hero-counter'));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const el = document.querySelector(a.getAttribute('href'));
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
